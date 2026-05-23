@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import type { Animal, CharacterAnimation, CharacterPose, Stage } from "../types/study";
 import styles from "./CharacterView.module.css";
@@ -15,7 +15,7 @@ const animalLabel: Record<Animal, string> = {
   cat: "고양이",
   dog: "강아지",
   rabbit: "토끼",
-  hamster: "햄스터",
+  tiger: "호랑이",
 };
 
 export function CharacterView({
@@ -25,18 +25,29 @@ export function CharacterView({
   size = 140,
   animate = "none",
 }: CharacterViewProps) {
-  const [assetMissing, setAssetMissing] = useState(false);
-  const src = `${import.meta.env.BASE_URL}assets/characters/${animal}_stage${stage}_${pose}.png`;
+  const [assetIndex, setAssetIndex] = useState(0);
+  const assetCandidates = useMemo(() => {
+    const basePath = `${import.meta.env.BASE_URL}assets/characters/${animal}_stage${stage}`;
+    const defaultCandidates =
+      stage === 0 ? [`${basePath}_default.png`, `${basePath}.png`] : [`${basePath}_default.png`];
+
+    if (pose === "sad") {
+      return [`${basePath}_sad.png`, `${basePath}_study.png`, ...defaultCandidates];
+    }
+
+    return pose === "study" ? [`${basePath}_study.png`, ...defaultCandidates] : defaultCandidates;
+  }, [animal, stage, pose]);
+  const src = assetCandidates[assetIndex];
   const animationClass =
     animate === "float" ? styles.animFloat : animate === "bob" ? styles.animBob : "";
   const stageClass = styles[`stage${stage}`];
   const poseClass = pose === "study" ? styles.studyPose : "";
 
   useEffect(() => {
-    setAssetMissing(false);
+    setAssetIndex(0);
   }, [animal, stage, pose]);
 
-  if (!assetMissing) {
+  if (src != null) {
     return (
       <img
         src={src}
@@ -44,7 +55,7 @@ export function CharacterView({
         width={size}
         height={size}
         className={`${styles.characterImage} ${animationClass}`}
-        onError={() => setAssetMissing(true)}
+        onError={() => setAssetIndex((index) => index + 1)}
       />
     );
   }

@@ -54,6 +54,15 @@
   line-height: 1.5;
 }
 
+.hint {
+  position: relative;
+  max-width: 280px;
+  color: #a78bfa;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
 .overlay button {
   position: relative;
   width: min(100%, 320px);

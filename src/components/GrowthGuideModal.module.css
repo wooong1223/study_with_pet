@@ -1,0 +1,65 @@
+.layer {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  background: rgba(5, 5, 10, 0.68);
+}
+
+.modal {
+  position: relative;
+  width: min(100%, 360px);
+  padding: 22px 18px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  background: #1a1a22;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.46);
+}
+
+.modal h2 {
+  margin: 0 0 16px;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.modal ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0 0 18px;
+  padding: 0;
+  list-style: none;
+}
+
+.modal li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 11px 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.modal span {
+  flex: 0 0 auto;
+  color: #a0a0aa;
+  font-size: 13px;
+}
+
+.modal strong {
+  min-width: 0;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 800;
+  text-align: right;
+}

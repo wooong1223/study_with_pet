@@ -67,11 +67,11 @@
   --inner: #ffd3ea;
 }
 
-.hamster .character {
-  --main-a: #f9db9d;
-  --main-b: #db9257;
-  --main-c: #a95c3f;
-  --inner: #f3bd7b;
+.tiger .character {
+  --main-a: #ffd28a;
+  --main-b: #f28f45;
+  --main-c: #9c5534;
+  --inner: #ffbf8c;
 }
 
 .body {
@@ -181,19 +181,19 @@
   transform: rotate(-26deg) scaleX(-1);
 }
 
-.hamster .ears {
+.tiger .ears {
   top: 7%;
   left: 15%;
   width: 70%;
 }
 
-.hamster .ears span {
+.tiger .ears span {
   width: 25%;
   border-radius: 999px;
   transform: none;
 }
 
-.hamster .ears span:nth-child(2) {
+.tiger .ears span:nth-child(2) {
   transform: none;
 }
 
@@ -285,7 +285,7 @@
 }
 
 .rabbit .tail,
-.hamster .tail {
+.tiger .tail {
   right: -2%;
   bottom: 28%;
   width: 20%;

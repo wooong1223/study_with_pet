@@ -8,14 +8,24 @@ import { Result } from "./screens/Result";
 import { Studying } from "./screens/Studying";
 import type { Animal, StudyData, StudyResult } from "./types/study";
 import { formatStudyTime } from "./utils/format";
-import { applyStudySession, loadStudyData, saveStudyData, setAnimal } from "./utils/storage";
+import {
+  applyStudySession,
+  getCurrentWeekSeconds,
+  loadStudyData,
+  saveStudyData,
+  setPetProfile,
+} from "./utils/storage";
 import { getStage } from "./utils/stageCalc";
 
 type Screen = "onboarding" | "home" | "studying" | "result";
 
 function App() {
   const [data, setData] = useState<StudyData>(() => loadStudyData());
-  const [screen, setScreen] = useState<Screen>(() => (loadStudyData().animal ? "home" : "onboarding"));
+  const [screen, setScreen] = useState<Screen>(() => {
+    const initialData = loadStudyData();
+
+    return initialData.animal && initialData.petName ? "home" : "onboarding";
+  });
   const [result, setResult] = useState<StudyResult | null>(null);
   const [showEvolve, setShowEvolve] = useState(false);
 
@@ -26,8 +36,8 @@ function App() {
     saveStudyData(nextData);
   }
 
-  function handleOnboardingComplete(selectedAnimal: Animal) {
-    const nextData = setAnimal(data, selectedAnimal);
+  function handleOnboardingComplete(selectedAnimal: Animal, petName: string) {
+    const nextData = setPetProfile(data, selectedAnimal, petName);
     persist(nextData);
     setScreen("home");
   }
@@ -42,6 +52,8 @@ function App() {
       sessionSeconds,
       totalSeconds: nextData.totalSeconds,
       todaySeconds: nextData.todaySeconds,
+      weekSeconds: getCurrentWeekSeconds(nextData.weeklySeconds),
+      streak: nextData.streak,
       previousStage,
       stage: nextStage,
     });
@@ -71,6 +83,7 @@ function App() {
       {screen === "result" && result != null ? (
         <Result
           animal={animal}
+          data={data}
           result={result}
           onShare={() => {
             void handleShare();
@@ -79,7 +92,13 @@ function App() {
         />
       ) : null}
       {showEvolve ? (
-        <EvolveOverlay animal={animal} stage={result?.stage ?? 1} onConfirm={() => setShowEvolve(false)} />
+        <EvolveOverlay
+          animal={animal}
+          petName={data.petName}
+          stage={result?.stage ?? 1}
+          totalSeconds={result?.totalSeconds ?? data.totalSeconds}
+          onConfirm={() => setShowEvolve(false)}
+        />
       ) : null}
     </div>
   );

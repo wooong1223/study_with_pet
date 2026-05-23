@@ -1,13 +1,103 @@
 .screen {
   display: flex;
-  min-height: 100vh;
+  height: 100%;
+  min-height: 0;
   flex-direction: column;
-  gap: 24px;
-  padding: 32px 20px 24px;
+  gap: 18px;
+  overflow: hidden;
+  padding: 24px 20px 18px;
+}
+
+.splash {
+  justify-content: center;
+  gap: 22px;
+  text-align: center;
+}
+
+.friends {
+  position: relative;
+  display: grid;
+  min-height: min(292px, 36vh);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  justify-items: center;
+  margin: 8px 0 0;
+}
+
+.friends > *:nth-child(1) {
+  transform: translate(20px, 22px);
+}
+
+.friends > *:nth-child(2) {
+  transform: translate(-20px, 8px);
+}
+
+.friends > *:nth-child(3) {
+  transform: translate(12px, -20px);
+}
+
+.friends > *:nth-child(4) {
+  transform: translate(-12px, -8px);
+}
+
+.splashText h1,
+.nameHero h1 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1.24;
+}
+
+.splashText p {
+  margin: 12px 0 0;
+  color: #a0a0aa;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.nameScreen {
+  justify-content: center;
+}
+
+.nameHero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.nameInput {
+  width: 100%;
+  height: 54px;
+  padding: 0 16px;
+  border: 1.5px solid #2a2a35;
+  border-radius: 16px;
+  outline: none;
+  background: #1a1a22;
+  color: #ffffff;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.nameInput::placeholder {
+  color: #6f6f7a;
+}
+
+.nameInput:focus {
+  border-color: #7c6fff;
+  box-shadow: 0 0 0 4px rgba(124, 111, 255, 0.14);
+}
+
+.nameScreen button:disabled {
+  cursor: default;
+  opacity: 0.45;
 }
 
 .header {
-  padding-top: 14px;
+  padding-top: 8px;
 }
 
 .kicker {
@@ -20,7 +110,7 @@
 .header h1 {
   margin: 0;
   color: #ffffff;
-  font-size: 26px;
+  font-size: 24px;
   font-weight: 800;
   line-height: 1.2;
 }
@@ -35,16 +125,17 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
+  gap: 10px;
+  min-height: 0;
 }
 
 .card {
   display: flex;
-  min-height: 154px;
+  min-height: min(190px, 25vh);
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 8px;
   border: 1.5px solid #2a2a35;
   border-radius: 14px;
   background: #1a1a22;
@@ -53,7 +144,7 @@
 }
 
 .card span {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
 }
 
@@ -65,4 +156,9 @@
 
 .screen > button:last-child {
   margin-top: auto;
+}
+
+.splash > button:last-child,
+.nameScreen > button:last-child {
+  margin-top: 0;
 }

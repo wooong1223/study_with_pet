@@ -34,6 +34,10 @@ export function getStageName(stage: Stage) {
   return STAGE_NAMES[stage];
 }
 
+export function getNextStageName(stage: Stage) {
+  return stage === 5 ? null : STAGE_NAMES[stage + 1];
+}
+
 export function getNextStageSeconds(stage: Stage) {
   if (stage === 0) {
     return 1;

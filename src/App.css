@@ -1,11 +1,15 @@
 #root {
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
+  height: 100dvh;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .appShell {
-  min-height: 100vh;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
   background:
     radial-gradient(circle at 50% -10%, rgba(124, 111, 255, 0.22), transparent 34%),
     #0f0f14;

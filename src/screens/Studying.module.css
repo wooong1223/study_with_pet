@@ -1,13 +1,15 @@
 .screen {
   display: flex;
-  min-height: 100vh;
+  height: 100%;
+  min-height: 0;
   flex-direction: column;
-  gap: 22px;
-  padding: 26px 20px 24px;
+  gap: 12px;
+  overflow: hidden;
+  padding: 20px 20px 18px;
 }
 
 .header {
-  min-height: 86px;
+  min-height: 74px;
 }
 
 .header p {
@@ -22,6 +24,7 @@
   color: #ffffff;
   font-size: 22px;
   font-weight: 800;
+  line-height: 1.24;
 }
 
 .header span {
@@ -32,10 +35,33 @@
   font-weight: 700;
 }
 
-.character {
-  display: grid;
-  place-items: center;
-  margin-top: -6px;
+.focusArea {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 0;
+  text-align: center;
+}
+
+.digitalTimer {
+  color: #ffffff;
+  font-variant-numeric: tabular-nums;
+  font-size: clamp(42px, 12vw, 52px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 6px;
+}
+
+.message {
+  min-height: 22px;
+  margin: 0;
+  color: #a0a0aa;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.35;
 }
 
 .stats {
@@ -46,7 +72,22 @@
 
 .actions {
   display: grid;
-  grid-template-columns: 1fr 1.4fr;
+  grid-template-columns: 1fr;
   gap: 10px;
   margin-top: auto;
+}
+
+.pausedActions {
+  grid-template-columns: 1fr 1.25fr;
+}
+
+@media (max-width: 360px) {
+  .digitalTimer {
+    font-size: 44px;
+    letter-spacing: 4px;
+  }
+
+  .focusArea {
+    min-height: 340px;
+  }
 }

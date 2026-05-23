@@ -1,0 +1,72 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  background: #1a1a22;
+}
+
+.panel header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.panel strong {
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.chart {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 6px;
+  align-items: end;
+  min-height: 104px;
+}
+
+.day {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 5px;
+}
+
+.value {
+  min-height: 20px;
+  color: #a0a0aa;
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1.15;
+  text-align: center;
+}
+
+.bar {
+  width: 100%;
+  max-width: 22px;
+  min-height: 10px;
+  border-radius: 999px 999px 5px 5px;
+  background: #343443;
+  transition: height 0.3s ease;
+}
+
+.today {
+  background: linear-gradient(180deg, #a78bfa, #7c6fff);
+  box-shadow: 0 8px 18px rgba(124, 111, 255, 0.28);
+}
+
+.day span:last-child {
+  color: #888894;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.day .todayLabel {
+  color: #ffffff;
+}
