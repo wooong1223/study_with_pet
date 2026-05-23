@@ -1,0 +1,68 @@
+.screen {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  gap: 24px;
+  padding: 32px 20px 24px;
+}
+
+.header {
+  padding-top: 14px;
+}
+
+.kicker {
+  margin: 0 0 10px;
+  color: #a78bfa;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.header h1 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.header p:last-child {
+  margin: 12px 0 0;
+  color: #a0a0aa;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.card {
+  display: flex;
+  min-height: 154px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 1.5px solid #2a2a35;
+  border-radius: 14px;
+  background: #1a1a22;
+  color: #ffffff;
+  font: inherit;
+}
+
+.card span {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.selected {
+  border-color: #7c6fff;
+  background: linear-gradient(180deg, rgba(124, 111, 255, 0.24), #1a1a22);
+  box-shadow: 0 14px 34px rgba(124, 111, 255, 0.16);
+}
+
+.screen > button:last-child {
+  margin-top: auto;
+}

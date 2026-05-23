@@ -1,0 +1,52 @@
+.screen {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  gap: 22px;
+  padding: 26px 20px 24px;
+}
+
+.header {
+  min-height: 86px;
+}
+
+.header p {
+  margin: 0 0 8px;
+  color: #a78bfa;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.header h1 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.header span {
+  display: inline-block;
+  margin-top: 10px;
+  color: #ff9f4a;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.character {
+  display: grid;
+  place-items: center;
+  margin-top: -6px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 10px;
+  margin-top: auto;
+}

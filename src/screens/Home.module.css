@@ -1,0 +1,94 @@
+.screen {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  gap: 20px;
+  padding: 24px 20px;
+}
+
+.top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.kicker {
+  margin: 0 0 4px;
+  color: #a78bfa;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.top h1 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.streak {
+  flex: 0 0 auto;
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: rgba(255, 159, 74, 0.14);
+  color: #ffb66f;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0 2px;
+}
+
+.stageBadge {
+  padding: 7px 12px;
+  border: 1px solid rgba(167, 139, 250, 0.28);
+  border-radius: 999px;
+  background: rgba(124, 111, 255, 0.14);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.progressPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  background: #1a1a22;
+}
+
+.progressHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.progressHeader strong {
+  color: #ffffff;
+  font-size: 16px;
+}
+
+.progressHeader span {
+  color: #888888;
+  font-size: 12px;
+  text-align: right;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.screen > button:last-child {
+  margin-top: auto;
+}
